@@ -97,11 +97,39 @@ function M.setup(config)
     },
   }
 
-  -- Start the LSP client
-  local client_id, _ = vim.lsp.start(client_config)
+  -- Start the LSP client (eagerly, without requiring a buffer)
+  local client_id = vim.lsp.start_client(client_config)
 
   if client_id then
     lunar_client_id = client_id
+
+    -- Attach to any already-open buffers with a matching filetype
+    local filetype_set = {}
+    for _, ft in ipairs(DEFAULT_FILETYPES) do
+      filetype_set[ft] = true
+    end
+    for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+      if vim.api.nvim_buf_is_loaded(bufnr) then
+        local ft = vim.bo[bufnr].filetype
+        if filetype_set[ft] then
+          vim.lsp.buf_attach_client(bufnr, client_id)
+        end
+      end
+    end
+
+    -- Attach to future buffers via FileType autocmd
+    vim.api.nvim_create_autocmd("FileType", {
+      group = vim.api.nvim_create_augroup("LunarLSPAttach", { clear = true }),
+      pattern = DEFAULT_FILETYPES,
+      callback = function(args)
+        -- Re-check client is still alive
+        local client = vim.lsp.get_client_by_id(lunar_client_id)
+        if client and not client.is_stopped() then
+          vim.lsp.buf_attach_client(args.buf, lunar_client_id)
+        end
+      end,
+    })
+
     return client_id
   end
 
