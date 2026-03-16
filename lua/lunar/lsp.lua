@@ -73,7 +73,7 @@ function M.setup(config)
 
   local client_config = {
     name = "lunar",
-    cmd = { config.cmd },
+    cmd = { config.cmd, "--stdio" },
     root_dir = project_root,
     filetypes = DEFAULT_FILETYPES,
     single_file_support = true,
