@@ -11,7 +11,7 @@ M._setup_complete = false
 
 -- Default configuration
 local default_config = {
-  model = "gpt-4o-mini",
+  model = "gpt-4.1-mini",
   maxIssues = 5,
   maxProblems = 100,
   cmd = "lunar-lsp",

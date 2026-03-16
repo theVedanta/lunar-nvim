@@ -64,7 +64,7 @@ nvim-plugin/
   - `validate(conf)` - Validate configuration object
   - `get()` - Retrieve current merged configuration
 - **Validation Rules:**
-  - `model` must be one of: `gpt-4o-mini`, `gpt-4o`, `gpt-4-turbo`, `gpt-4`
+  - `model` must be one of: `gpt-4.1-mini`, `gpt-4o`, `gpt-4-turbo`, `gpt-4`
   - `maxIssues` must be a positive number
   - `maxProblems` must be a positive number
   - `cmd` must be a string
@@ -161,7 +161,7 @@ LSP client detects file change
     ↓
 File sent to lunar-lsp server
     ↓
-Server calls OpenAI API with GPT-4o-mini
+Server calls OpenAI API with GPT-4.1-mini
     ↓
 GPT reviews code and returns issues
     ↓
@@ -180,7 +180,7 @@ Issues appear in Problems panel
 
 ```lua
 local default_config = {
-  model = "gpt-4o-mini",      -- Use smaller, faster model by default
+  model = "gpt-4.1-mini",      -- Use smaller, faster model by default
   maxIssues = 5,              -- Limit issues to avoid overwhelming user
   maxProblems = 100,          -- Cap total diagnostics shown
   cmd = "lunar-lsp",          -- Assume binary is in PATH

@@ -133,7 +133,7 @@ After restarting Neovim:
 
 By default, Lunar uses:
 
-- Model: `gpt-4o-mini` (fast and cheap)
+- Model: `gpt-4.1-mini` (fast and cheap)
 - Max issues: 5 per file
 - Max problems: 100 total
 
@@ -204,7 +204,7 @@ source ~/.zshrc
 
 Make sure you're using a valid model name:
 
-- `gpt-4o-mini` (recommended - fast and cheap)
+- `gpt-4.1-mini` (recommended - fast and cheap)
 - `gpt-4o` (high quality, higher cost)
 - `gpt-4-turbo` (balance of quality and cost)
 - `gpt-4` (legacy, not recommended)

@@ -4,7 +4,7 @@ An AI-powered code review LSP client for Neovim. Lunar surfaces real issues (cla
 
 ## Features
 
-- **AI-Powered Review** - Uses GPT-4o-mini to flag issues in your code
+- **AI-Powered Review** - Uses GPT-4.1-mini to flag issues in your code
 - **Automatic Attachment** - Works on all code-related file types with zero configuration
 - **Project Root Detection** - Automatically finds your project root using `.git`, `.gitignore`, and other markers
 - **Sensible Defaults** - Works out of the box with `require('lunar').setup()`
@@ -68,7 +68,7 @@ require('lunar').setup()
 
 This will:
 
-- Use `gpt-4o-mini` as the default model
+- Use `gpt-4.1-mini` as the default model
 - Allow up to 5 issues per file per review pass
 - Automatically attach to code-related file types
 - Look for the `lunar-lsp` binary in your PATH
@@ -89,7 +89,7 @@ require('lunar').setup({
 
 | Option        | Type   | Default         | Description                                  |
 | ------------- | ------ | --------------- | -------------------------------------------- |
-| `model`       | string | `"gpt-4o-mini"` | OpenAI model to use for code review          |
+| `model`       | string | `"gpt-4.1-mini"` | OpenAI model to use for code review          |
 | `maxIssues`   | number | `5`             | Max issues per file per review pass          |
 | `maxProblems` | number | `100`           | Hard cap on total diagnostics shown per file |
 | `cmd`         | string | `"lunar-lsp"`   | Path to the lunar-lsp binary                 |
